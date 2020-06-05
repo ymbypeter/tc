@@ -173,3 +173,69 @@
 .footer p{
     font-size: 14px;
 }
+.login-small{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(115deg, #FF7575 60%,
+    transparent 50%) center center / 100% 100%,
+    url("login.jpg") right center / auto 100%;
+    border-radius: 10px;
+}
+.login-small h1{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 900;
+}
+.login-small .login-position{
+    color: #fff;
+    position: relative;
+    margin-left: 20px;
+    font-size: 30px;
+    display: inline-block;
+}
+.login-small .login-position .account{
+    margin-top: 30px;
+}
+.login-small .login-position input{
+    height: 22px;
+    border-radius: 5px;
+}
+.login-small .login-position div{
+    font-size: 20px;
+    line-height: 30px;
+}
+.login-small .login-position .forget{
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.login-small .login-position .forget:hover{
+    color: #CE0000;
+}
+.login-small .login-position .login-submit{
+    position: absolute;
+    left: 30%;
+    margin-top: 60px;
+}
+.login-small .login-position .login-submit input{
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+    color: #FF7575;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: .3s;
+}
+.login-small .login-position .login-submit input:hover{
+    transform: translateY(-3px);
+    background-color: #CE0000;
+    color: #fff;
+}
