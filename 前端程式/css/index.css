@@ -5,7 +5,7 @@
     font-family: Arial,"標楷體";
 }
 .wrap{
-    
+    min-width: 1150px;
 }
 .banner img{
     width: 100%;
@@ -13,7 +13,7 @@
 }
 .bannertxt{
     position: absolute;
-    top: 35%;
+    top: 160px;
     left: 5%;
     width: 40%;
 }
@@ -33,6 +33,7 @@
     line-height: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    min-width: 450px;
 }
 .bannertxt input{
     height: 32px;
@@ -44,25 +45,55 @@
     padding-left: 20px;
     font-style: italic;
 }
-.bannertxt button{
+.bannertxt input:focus{
+    outline: none;
+}
+.banner-button{
+    position: relative;
+    display: inline-block;
+}
+.banner-button .button-position{
+    position: absolute;
+    top: 0;
+    right: -80px;
+}
+.banner-button button{
     border: none;
     height: 32px;
     width: 80px;
     color: #fff;
-    background-color: blue;
+    background-color: #3534C9;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+.banner-button button:hover{
+    background-color: #2fb3d1;
+}
+.banner-button button:focus{
+    outline: none;
 }
 .nav{
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(to right, rgb(50,115,201,.3), rgb(121,194,219, .3));
-    background-color: #fff;
     width: 100%;
-    padding: 20px 0;
     text-align: right;
     z-index: 10;
+}
+.nav-bg img{
+    width: 100%;
+    vertical-align: top;
+}
+nav{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .nav .logo img{
     width: 100px;
@@ -76,6 +107,12 @@
     font-size: 16px;
     margin-right: 20px;
     color: #000;
+    transform: translateY(0);
+    transition: .3s;
+}
+.nav a:hover{
+    transform: translateY(-3px);
+    color: #2fb3d1;
 }
 .nav button{
     height: 25px;
@@ -85,6 +122,17 @@
     color: #fff;
     border: none;
     font-size: 16px;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: .3s;
+}
+.nav button:hover{
+    transform: translateY(-3px);
+    background-color: #2fb3d1;
+    color: #fff;
+}
+.nav button:focus{
+    outline: none;
 }
 .experience{
     display: flex;
@@ -100,6 +148,16 @@
     align-items: center;
     padding: 10px 0;
     position: relative;
+}
+.experience .item:hover{
+    animation : shake .5s 1;
+}
+@keyframes  shake  {
+    15% { transform:  translateX(5px); }
+    40% { transform:  translateX(-5px); }
+    65% { transform:  translateX(2px); }
+    85% { transform:  translateX(-2px); }
+    100% { transform:  translateX(0px); }
 }
 .experience .item img{
     width: 120px;
@@ -172,70 +230,4 @@
 }
 .footer p{
     font-size: 14px;
-}
-.login-small{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(115deg, #FF7575 60%,
-    transparent 50%) center center / 100% 100%,
-    url("login.jpg") right center / auto 100%;
-    border-radius: 10px;
-}
-.login-small h1{
-    text-align: center;
-    padding-top: 20px;
-    font-size: 50px;
-    color: #fff;
-    font-weight: 900;
-}
-.login-small .login-position{
-    color: #fff;
-    position: relative;
-    margin-left: 20px;
-    font-size: 30px;
-    display: inline-block;
-}
-.login-small .login-position .account{
-    margin-top: 30px;
-}
-.login-small .login-position input{
-    height: 22px;
-    border-radius: 5px;
-}
-.login-small .login-position div{
-    font-size: 20px;
-    line-height: 30px;
-}
-.login-small .login-position .forget{
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
-}
-.login-small .login-position .forget:hover{
-    color: #CE0000;
-}
-.login-small .login-position .login-submit{
-    position: absolute;
-    left: 30%;
-    margin-top: 60px;
-}
-.login-small .login-position .login-submit input{
-    height: 40px;
-    width: 100px;
-    border-radius: 20px;
-    border: none;
-    background-color: #fff;
-    color: #FF7575;
-    font-weight: bold;
-    cursor: pointer;
-    transform: translateY(0);
-    transition: .3s;
-}
-.login-small .login-position .login-submit input:hover{
-    transform: translateY(-3px);
-    background-color: #CE0000;
-    color: #fff;
 }

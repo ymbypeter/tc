@@ -7,16 +7,21 @@
 .wrap{
     
 }
+nav{
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
 .nav-bg img{
     width: 100%;
 }
-nav{
+.nav{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     text-align: right;
-    z-index: 10;
+    z-index: 2;
 }
 .nav .logo img{
     width: 100px;
@@ -42,6 +47,9 @@ nav{
     color: #fff;
     border: none;
     font-size: 16px;
+}
+.container{
+    margin-top: 200px;
 }
 .container .top .left{
     border:1px solid;

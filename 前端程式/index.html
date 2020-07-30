@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>index</title>
 </head>
 <body>
@@ -16,10 +16,15 @@
                 <p>
                 TC-teaching 主要是透過雲端影音傳授知識，使用科技讓學習零距離。除了提供程式相關過程，也透過個人考試和解答分析。讓使用者直觀掌握自我學習狀況，最後再以2P對戰和角色養成引發學習興趣與自主學習的熱忱。
                 </p>
-                <input type="text"  value="your@gmail.com"><button>SEND</button>
+                <div class="banner-button">
+                    <input type="text"  value="your@gmail.com"><button class="button-position">SEND</button>
+                </div>
             </div>
         </div>
         <div class="nav">
+            <div class="nav-bg">
+                <img src="image/navbg.png" alt="navbg">
+            </div>
             <div class="logo">
                 <img src="image/logo.png" alt="logo">
             </div>
@@ -27,7 +32,7 @@
                 <a href="#">關於我們</a>
                 <a href="#">相關課程</a>
                 <a href="#">聯繫我們</a>
-                <a href='javascript:void(0)' id='linkbt3'><button>登入</button></a>
+                <a href='javascript:void(0)' id='linkbt'><button>登入</button></a>
             </nav>
         </div>
         <div class="experience">
@@ -112,41 +117,47 @@
         </div>
     </div>
 
-    <div id='login'>
-        <a href='javascript:void(0)' id='closebt3' class='color3'>×</a>
-        <div class="login-small">
-            <h1>登入</h1>
-            <div class="login-position">
-                <div class="account">
-                    <div>
-                        帳號 :<br>
-                        <input type="text" onKeyUp="value=value.replace(/[\W]/g,'')">
-                    </div>
-                    <div>
-                        密碼 :<br>
-                        <input type="password">
-                    </div>
+    <div id='login' class="login">
+        <div class="login-img">
+            <img src="image/login.png" alt="login">
+        </div>
+        <div class="login-position">
+            <h1>您好 歡迎回來TC-teaching！</h1>
+            <div class="account">
+                <div>
+                    帳號 :
+                    <input type="text" onKeyUp="value=value.replace(/[\W]/g,'')">
+                </div>
+                <div>
+                    密碼 :
+                    <input type="password">
                 </div>
                 <a href="#" class="forget">忘記密碼</a>
-                <div class="login-submit">
-                    <input type="submit" value="login">
+                <div class="login-button">
+                    <button class="yesbt">login</button>
+                    <a href='javascript:void(0)' id='closebt' class='color'><button class="nobt">取消</button></a>
                 </div>
+                <p>
+                    還不是會員嗎？<a href="#">點我註冊</a>
+                </p>
             </div>
             
-        </div>
+        </div> 
     </div>
+
     <div id='fade'></div>
+
     <script type='text/javascript'>
         function hi(){
-           var linkbt3=document.getElementById('linkbt3');
+           var linkbt=document.getElementById('linkbt');
            var login=document.getElementById('login');
            var fade=document.getElementById('fade');
-           var closebt3=document.getElementById('closebt3');
-           linkbt3.onclick=function(){
+           var closebt=document.getElementById('closebt');
+           linkbt.onclick=function(){
             login.style.display='block';
              fade.style.display='block';
            }
-           closebt3.onclick=function(){
+           closebt.onclick=function(){
             login.style.display='none';
              fade.style.display='none';
            }

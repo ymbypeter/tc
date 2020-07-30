@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 10px;
+        }
+        .username{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            border: 1px solid #bcbec0;
+            border-radius: 20px;
+            padding: 15px;
+            font-size: 20px;
+            margin-top: 15px;
+            box-sizing: border-box;
+        }
+        .username .pic img{
+            height: 100px;
+            width: 100px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .username .txt{
+            text-align: center;
+            line-height: 1.5;
+        }
+        .username .txt img{
+            width: 30px;
+            vertical-align: middle;
+        }
+        .penguin{
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+        .penguin img{
+            height: 270px;
+            width: 250px;
+            border: 1px solid #bcbec0;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .pvp{
+            background-color: #81d3cb;
+            height: 600px;
+            width: 800px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 20px;
+        }
+        .pvp .test{
+            background-color: rgba(242,242,242,.5);
+            width: 45%;
+            height: 90%;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .pvp .test .point{
+            background-color: #fff;
+            border: 2px solid #bcbec0;
+            font-size: 20px;
+            padding: 5px 20px;
+            border-radius: 20px;
+            width: 130px;
+            box-sizing: border-box;
+        }
+        .pvp .test .text{
+            background-color: #fff;
+            border: 2px solid #bcbec0;
+            font-size: 20px;
+            padding: 20px 15px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        .pvp .test .option{
+            width: 100%;
+            height: 230px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .pvp .test .option button{
+            height: 70px;
+            width: 70px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #fff;
+            border-radius: 25px;
+            border: 2px solid #bcbec0;
+            cursor: pointer;
+        }
+        .pvp .test .option button:hover{
+            background-color: #ffff00;
+        }
+        .pvp .test .option button:focus{
+            outline: none;
+        }
+        .pvp .test .option .botton-position{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .twobutton{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+        .twobutton button{
+            width: 100px;
+            height: 35px;
+            border-radius: 15px;
+            border: none;
+            background-color: #79c2db;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .twobutton button:hover{
+            color: #ffff00;
+        }
+        .twobutton button:focus{
+            outline: none;
+        }
+        @keyframes loading {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .circle {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            height: 40px;
+            width: 40px;
+        }
+        .circle .loading {
+            border: 5px solid red;
+            border-right: 5px solid #fff;
+            border-bottom: 5px solid #fff;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            animation: loading 1s infinite linear;
+        }
+        .circle .word {
+            color: red;
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            top: 10px;
+            left: 0;
+            font-size: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="username username1">
+                <div class="pic">
+                    <img src="image/PP1.png" alt="PP1">
+                </div>
+                <div class="txt">
+                    USERNAME<br>
+                    <img src="image/P2.png" alt="P2"> 白銀<br>
+                    <img src="image/money.png" alt="money"> : XX
+                </div>
+            </div>
+            <div class="penguin penguin2">
+                <img src="image/penguin2.png" alt="penguin2">
+                <br>Buff : 減少對手5秒時間<br>持續兩局
+            </div>
+            <div class="twobutton">
+                <button>出題</button>
+                <button>投降</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="pvp">
+                <div class="test left">
+                    <div class="point">
+                        得分 : XX
+                    </div>
+                    <div class="circle">
+                        <div class="loading"></div>
+                        <div class="word">10</div>
+                    </div>
+                    <div class="text">
+                        題目 : <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia dignissimos ut veritatis nisi, itaque debitis ea consequuntur cupiditate iusto sint voluptate reiciendis, autem velit tempora quidem hic impedit labore?
+                    </div>
+                    <div class="option">
+                        <div class="botton-position">
+                            <button>A</button>
+                            <button>B</button>
+                        </div>
+                        <div class="botton-position">
+                            <button>C</button>
+                            <button>D</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="test right">
+                    <div class="point">
+                        得分 : XX
+                    </div>
+                    <div class="circle">
+                        <div class="loading"></div>
+                        <div class="word">5</div>
+                    </div>
+                    <div class="text">
+                        題目 : <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia dignissimos ut veritatis nisi, itaque debitis ea consequuntur cupiditate iusto sint voluptate reiciendis, autem velit tempora quidem hic impedit labore?
+                    </div>
+                    <div class="option">
+                        <div class="botton-position">
+                            <button>A</button>
+                            <button>B</button>
+                        </div>
+                        <div class="botton-position">
+                            <button>C</button>
+                            <button>D</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="username username2">
+                <div class="pic">
+                    <img src="image/P1.png" alt="P1">
+                </div>
+                <div class="txt">
+                    USERNAME<br>
+                    <img src="image/P3.png" alt="P3"> 黃金<br>
+                    <img src="image/money.png" alt="money"> : XX
+                </div>
+            </div>
+            <div class="penguin penguin3">
+                <img src="image/penguin3.png" alt="penguin3">
+                <br>Buff : 刪除一個錯誤選項<br>持續兩局
+            </div>
+            <div class="twobutton">
+                <button>出題</button>
+                <button>投降</button>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
