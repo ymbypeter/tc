@@ -11,11 +11,12 @@ function upload(){
     //     alert('圖片類型不正確！');
     //     return;
     // }
-
+    
     var formData = new FormData();
     for(var i=0;i<u_file.files.length;i++){
         formData.append('file',u_file.files[i]);
 }
+
     var url = "/upload?account="+$.cookie('account');
     $.ajax({
         url:url,
@@ -54,7 +55,7 @@ function getFilelist(){
             <td>${file.path}</td>
             <td>${file.encoding}</td>
             <td>${file.mimetype}</td>
-            <td><button id="delBtn" onclick="onDelete('${file._id}')">刪除</button></td>
+            <td><button id="delBtn" onclick="onDelete('${file._id}','${file.filename}')">刪除</button></td>
             </tr>`;
             $('#filelist').append(filelist);
             })
@@ -66,7 +67,7 @@ function getFilelist(){
 getFilelist();
 
 //刪除檔案
-function onDelete(_id){
+function onDelete(_id,filename){
     if(!$.cookie('userID') || $.cookie('userID') == "null"){
         alert("請先登入會員！");
         location.href='/public/login.html';
@@ -79,7 +80,7 @@ function onDelete(_id){
         $.ajax({
             url:"/upload/",
             type:"DELETE",
-            data:{"_id":_id},
+            data:{"_id":_id,"filename":filename},
             success:function(res){
                 if(res.status==0){
                     alert("刪除成功！");
@@ -92,3 +93,44 @@ function onDelete(_id){
         });
     }
 }
+
+//上傳使用者相片
+function uploadPhoto(){
+    if(!$.cookie('account') || $.cookie('account') == "null"){
+        alert("請先登入會員！");
+        location.href='/public/login.html';
+        return;
+    }
+    var u_file = document.getElementById('photo');
+
+    if(!/.(gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG)$/.test(u_file.value)){
+        alert('圖片類型不正確！');
+        return;
+    }
+
+    var formData = new FormData();
+    formData.append('file',u_file.files[0]);
+    formData.append('account',$.cookie('account'));
+
+    $.ajax({
+        url:"/upload/photo",
+        type:"PATCH",
+        data:formData,
+        processData:false,
+        contentType:false,
+        success: function(res){
+            if(res.status==0){
+                alert("上傳成功！");
+                var f_filename = String(u_file.files[0].name);
+                var src = "./upload/"+f_filename;
+                $('#userPhoto').attr('src',src);
+                
+            }
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+}
+

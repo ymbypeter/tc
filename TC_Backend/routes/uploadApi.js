@@ -3,6 +3,7 @@ var router = express.Router();
 var upload = require('../middleware/upload');
 var Model = require('../models/uploadModel');
 var remove = require('../utils/fileTool');
+var userModel = require('../models/userModel');
 
 //上傳檔案
 router.post("/",upload.array('file'),function(req,res,next){ 
@@ -42,7 +43,6 @@ router.get('/',function(req,res){
           }
           else{
             res.json({"status":0,"msg":"success","data":data});
-            console.log(data);
           }
     })
 })
@@ -56,10 +56,26 @@ router.delete("/",function(req,res,next){
         }
         else{
             res.json({"status":0,"msg":"success","data":data});
-            //remove(req.body.images);
+            remove(req.body.filename);
         }
     });
 });
 
+//上傳使用者相片
+router.patch("/photo", upload.single("file"), function (req, res, next) {
+
+    userModel.updateOne({ account: req.body.account },{photo:req.file.filename},{upsert: true}, function (err,data) {
+        // data.photo.push(req.file.filename);
+        // data.markModified('photo');
+        // data.save(function(err){
+            if(err){
+                res.json({"status":1,"msg":"error"});
+              }
+              else{
+                res.json({"status":0,"msg":"success","data":data});
+              }
+        // })       
+    });
+});
 
 module.exports = router;
