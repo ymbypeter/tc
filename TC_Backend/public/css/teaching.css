@@ -5,7 +5,7 @@
 }
 .wrap{
     display: flex;
-    margin-top: 150px;
+    margin: 20px 0;
 }
 .left{
     width: 30%;
@@ -110,10 +110,6 @@
 }
 .right .offer-position{
     position: relative;
-}
-.right .offer-position video{
-    width: 600px;
-
 }
 .right .offer-position .offer{
     position: absolute;

@@ -6,7 +6,7 @@
 .wrap{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 150px;
+    margin-top: 10px;
 }
 .username{
     display: flex;
