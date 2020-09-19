@@ -21,6 +21,13 @@ function getUserData(){
             var score = $('#score').text(res.data.score);
             var money = $('#money').text(res.data.money);
             $('#money_txt').text(res.data.money);
+
+            var a = res.data.goal[0].list
+            var b = JSON.parse(a)
+            for(var i =0;i<b.length;i++){
+                $('#week_').append(`<td>${b[i].week}</td>`)
+                $('#hour_').append(`<td>${b[i].hour}小時</td>`)
+            }
         }
     })
 }
@@ -61,25 +68,33 @@ function getPvpData(){
 //儲存每日目標資料
 function saveGoalData(){
     var week = document.getElementsByName('week');
+    var hour = document.getElementsByName('hour');
     var goal = new Array();
     for(var i =0;i<week.length;i++){
         if(week[i].checked){
-            goal.push(week[i].value);
+            var goal_ ={week:week[i].value,
+                hour:hour[i].value};
+            goal.push(goal_); 
         }
     }
-
     var url = "/user/goal?account="+$.cookie('account');
 
     $.ajax({
         url:url,
         type:"PATCH",
-        data:{goal:goal},
-        traditional:true,
+        data:{list:JSON.stringify(goal)},
+        //traditional:true,
+        //processData:false,
+        //contentType:"json/application",
+        //dataType: "json",
         success: function(res){
             if(res.status==0){
-                alert("更改成功！");
+                alert("設定成功！");
                 $('#login').css('display','none');
                 $('#fade').css('display','none');
+                $('#week_').empty();
+                $('#hour_').empty();
+                getUserData();
             }
         },
         error: function(err){
@@ -127,4 +142,31 @@ function getCourseData(){
             })
         }
     })
+}
+
+//取得試題資料
+function getTestData(){
+    var url = "/test";
+    $.get(url,function(res){
+        if(res.status==0){
+            res.data.forEach(function(test){
+                var test = `<div class="test">
+                <span class="question">題目 : ${test.題目}</span><br>
+                <input type="radio" name="${test.序號}" value="A">[A] ${test.選項A}<br>
+                <input type="radio" name="${test.序號}" value="B">[B] ${test.選項B}<br>
+                <input type="radio" name="${test.序號}" value="C">[C] ${test.選項C}<br>
+                <input type="radio" name="${test.序號}" value="D">[D] ${test.選項D}<br>
+            </div>`;
+            $('.right').append(test);
+            })
+        }
+    })
+}
+
+function handAns(){
+    var checked = $('input[type=radio]:checked');
+    for(var i=0;i<checked.length;i++){
+        console.log(checked[i].value)
+    }
+ 
 }
