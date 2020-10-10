@@ -17,7 +17,9 @@ router.post("/",upload.array('file'),function(req,res,next){
         path: req.files[i].path,
         encoding: req.files[i].encoding,
         mimetype: req.files[i].mimetype,
-        destination: req.files[i].destination,   
+        destination: req.files[i].destination,
+        subject: req.body.subject[i],
+        description: req.body.description[i],  
     }
     upload.push(upload_);
 }
