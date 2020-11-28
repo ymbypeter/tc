@@ -70,4 +70,11 @@
     color: #fff;
     cursor: pointer;
     font-weight: bold;
+    transition: .2s;
+}
+.goods .goods-item .goods-button button:hover{
+    background-color: #2fb3d1;
+}
+.goods .goods-item .goods-button button:focus{
+    outline: none;
 }

@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 nav{
     position: absolute;
     top: 15px;
@@ -27,6 +32,56 @@ nav{
 }
 .nav nav img{
     width: 35px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.nav nav img:hover{
+    border: 2px solid yellow;
+    border-radius: 50%;
+}
+.nav .pull-down ul:hover + img{
+    border: 2px solid yellow;
+    border-radius: 50%;
+}
+.nav .pull-down{
+    position: relative;
+}
+.nav .pull-down:hover > ul{
+    display: block;
+}
+.nav .pull-down ul{
+    position: absolute;
+    height: 80px;
+    top: 55px;
+    left: calc(50% - 50px);
+    width: 70px;
+    display: none;
+    background-color: #2fb3d1;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.nav .pull-down ul::before{
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: calc(50%);
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid #2fb3d1;
+}
+.nav .pull-down ul li{
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: .2s;
+}
+.nav .pull-down ul li:hover{
+    color: yellow;
+}
+.nav .pull-down ul a{
+    margin: 0;
 }
 .nav a{
     text-decoration: none;
@@ -37,7 +92,7 @@ nav{
     transition: .3s;
 }
 .nav a:hover{
-    color: #888;
+    color: #2fb3d1;
     transform: translateY(-3px);
 }
 .nav button{

@@ -1,91 +1,78 @@
-body {
-  margin: 0;
-  padding: 2rem;
-  background-color: #446072;
-  font-family: monospace;
-  color: white;
-  overflow: hidden;
-}
-
-h1 {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-h1 + p {
-  text-align: center;
-}
-
 .shelf {
   position: relative;
-  width: 30rem;
-  height: 14rem;
+  width: 25em;
+  height: 12em;
   margin: 0 auto;
-  border: 0.5rem solid #374d5b;
-  border-radius: 0.5rem;
+  border: 0.5em solid #374d5b;
+  border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.1);
-  perspective: 130rem;
-  box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.2);
+  perspective: 130em;
+  box-shadow: inset 0 0 2em rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
 }
-
-.door {
+.shelf .door {
   position: absolute;
-  width: 14.8rem;
-  height: 14rem;
+  width: 12.5em;
+  height: 12em;
   display: flex;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 1em;
   background-color: #374d5b;
   align-items: center;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   outline: 1px solid transparent;
 }
 
-.door::before {
-  width: 1.5rem;
-  height: 1.5rem;
+.shelf .door::before {
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.1);
   content: "";
 }
 
-.door.left {
-  border-radius: 0 0.75rem 0.75rem 0;
+.shelf .door.left {
+  border-radius: 0 0.75em 0.75em 0;
   justify-content: flex-end;
   animation: leftDoorOpen 3.5s ease-out forwards 1s, leftDoorFlap 15s linear infinite forwards 9s;
   transform-origin: 0 0 0;
 }
 
-.door.right {
+.shelf .door.right {
   right: 0;
-  border-radius: 0.75rem 0 0 0.75rem;
+  border-radius: 0.75em 0 0 0.75em;
   animation: rightDoorOpen 3s ease-out forwards 1.5s, rightDoorFlap 10s linear infinite forwards 8s;
   transform-origin: 100% 0 0;
 }
-.container{
+.shelf .container{
   position: absolute;
   height: 100%;
+  font-size: 14px;
 }
-.top{
+.shelf .top{
   display: flex;
   width: 100%;
   height: 60%;
 }
-.top img{
-  width: 100px;
-  height: 110px;
+.shelf .top img{
+  width: 80px;
+  height: 90px;
   padding: 10px;
+  transition: .3s;
 }
-.bottom{
+.shelf .top img:hover{
+  transform: scale(1.2);
+}
+.shelf .bottom{
   display: flex;
   width: 100%;
   height: 40%;
   text-align: center;
 }
-.item{
+.shelf .item{
   width: 25%;
 }
-.book:hover:not(.not-found) {
+.shelf .book:hover:not(.not-found) {
   background-color: rgba(255, 255, 255, 0.2);
 }
 

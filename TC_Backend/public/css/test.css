@@ -16,11 +16,16 @@
     font-size: 18px;
     line-height: 1.5;
 }
+.left ul li span:hover{
+    cursor: pointer;
+    color: #2fb3d1;
+}
 .right{
     width: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
 }
 .right .test{
     line-height: 2;
@@ -29,25 +34,30 @@
 .right .test + .test::before{
     content: "";
     position: absolute;
-    top: -15px;
+    top: 0px;
     left: 0;
     border-bottom: 2px solid #DDD;
     width: 100%;
 }
-.right .test button{
-    margin-left: 100px;
+.right .btn-position{
+    position: absolute;
+    bottom: -24px;
+    left: calc(50% - 35px);
+}
+.right button{
     background-color: #3534c9;
     color: #fff;
-    padding: 0 20px;
-    border-radius: 10px;
+    padding: 1px 20px;
+    border-radius: 20px;
     cursor: pointer;
     transform: translateY(0);
     transition: .2s;
 }
-.right .test button:hover{
+.right button:hover{
     transform: translateY(-2px);
+    background-color: #2fb3d1;
 }
-.right .test button:focus{
+.right button:focus{
     outline: none;
 }
 .right .test .question{
@@ -55,6 +65,19 @@
     margin-bottom: 10px;
     color: seagreen;
     font-weight: bold;
+}
+.right img{
+    width: 200px;
+    vertical-align: top;
+}
+.right .picture-test{
+    display: flex;
+    flex-direction: column;
+}
+.right .picture-test .picture-top, .picture-bottom{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px 0;
 }
 .title{
     font-size: 20px;

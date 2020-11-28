@@ -28,46 +28,44 @@
         <div class="upload">
             <h2>感謝您提供的教材 !</h2>
             <div class="uploadbtn">
-                <div class="upload-position">
-                    <div class="upload-left">
-                        <div class="upload-video">
-                            <div>影片 :<input id='u_file' type="file" name="file" multiple></div>
-                            <table id="filelist" border="1">
-                                <tr>
-                                    <td>filename</td>
-                                    <td>size</td>
-                                    <td>path</td>
-                                    <td>encoding</td>
-                                    <td>mimetype</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- <div class="upload-ppt">
-                            <div>簡報 :<input id='u_file' type="file" name="file" multiple></div>
-                            <table id="filelist" border="1">
-                                <tr>
-                                    <td>filename</td>
-                                    <td>size</td>
-                                    <td>path</td>
-                                    <td>encoding</td>
-                                    <td>mimetype</td>
-                                </tr>
-                            </table>
-                        </div> -->
+                <div class="upload-choose ">
+                    <div class="upload-video">
+                        <div>影片 :<input id='u_file' type="file" name="file" multiple></div>
+                        <table id="filelist" border="1">
+                            <tr>
+                                <td>filename</td>
+                                <td>size</td>
+                                <td>path</td>
+                                <td>encoding</td>
+                                <td>mimetype</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="upload-txt">
-                        <div>
-                            主題分類<br>
-                            <select name="" id="subject">
-                                <option value="">scratch</option>
-                                <option value="">app inventor</option>
-                                <option value="">html & css</option>
-                                <option value="">javascript</option>
-                            </select>
-                        </div>
-                        <div>
-                            簡介<br><textarea name="" id="description" cols="30" rows="10">123123</textarea>
-                        </div>
+                    <div class="upload-ppt">
+                        <div>簡報 :<input id='u_file' type="file" name="file" multiple></div>
+                        <table id="filelist" border="1">
+                            <tr>
+                                <td>filename</td>
+                                <td>size</td>
+                                <td>path</td>
+                                <td>encoding</td>
+                                <td>mimetype</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="upload-txt">
+                    <div>
+                        主題分類<br>
+                        <select name="" id="subject">
+                            <option value="">scratch</option>
+                            <option value="">app inventor</option>
+                            <option value="">html & css</option>
+                            <option value="">javascript</option>
+                        </select>
+                    </div>
+                    <div>
+                        簡介<br><textarea name="" id="description" cols="30" rows="10">123123</textarea>
                     </div>
                 </div>
                 <button class="commonbtn mag20pxbtn" onclick="upload()">上傳</button>
