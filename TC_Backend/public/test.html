@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/test.css">
     <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script type="text/javascript" src="jquery/jquery.cookie.js"></script>
     <title>Document</title>
 </head>
@@ -16,10 +16,10 @@
             <div class="kind">
             <span class="title">課程類別</span>
             <ul>
-                <li>APP Inventor</li>
-                <li>Scratch</li>
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
+                <li><span>APP Inventor</span></li>
+                <li><span>Scratch</span></li>
+                <li><span>HTML & CSS</span></li>
+                <li><span>JavaScript</span></li>
             </ul>
             </div>
             <div class="section">
@@ -39,31 +39,29 @@
             </div>
         </div>
         <div class="right">
-            <div class="test">
-                <span class="question">題目 : Lorem ipsum dolor sit amet consectetur adipisicing elit?</span><br>
-                [A] Lorem ipsum dolor sit, amet consectetur.<button>A</button><br>
-                [B] Lorem ipsum dolor sit, amet consectetur.<button>B</button><br>
-                [C] Lorem ipsum dolor sit, amet consectetur.<button>C</button><br>
-                [D] Lorem ipsum dolor sit, amet consectetur.<button>D</button>
+            <script src="./javascripts/front-side.js"></script>
+            <div class="picture-test">
+                題目 : .................................................................?
+                <div class="picture-top">
+                    <div>
+                        <input type="radio" name="${test.序號}" value="A"><span>[A] <img src="image/class1.png" alt="class1"></span>
+                    </div>
+                    <div>
+                        <input type="radio" name="${test.序號}" value="B"><span>[B] <img src="image/class2.png" alt="class2"></span>
+                    </div> 
+                </div>
+                <div class="picture-bottom">
+                    <div>
+                        <input type="radio" name="${test.序號}" value="C"><span>[C] <img src="image/class3.png" alt="class3"></span>
+                    </div>
+                    <div>
+                        <input type="radio" name="${test.序號}" value="D"><span>[D] <img src="image/class1.png" alt="class1"></span>
+                    </div>
+                </div>
             </div>
-            <div class="test">
-                <span class="question">題目 : Lorem ipsum dolor sit amet consectetur adipisicing elit?</span><br>
-                [A] Lorem ipsum dolor sit, amet consectetur.<button>A</button><br>
-                [B] Lorem ipsum dolor sit, amet consectetur.<button>B</button><br>
-                [C] Lorem ipsum dolor sit, amet consectetur.<button>C</button><br>
-                [D] Lorem ipsum dolor sit, amet consectetur.<button>D</button>
-            </div>
-            <div class="test">
-                <span class="question">題目 : Lorem ipsum dolor sit amet consectetur adipisicing elit?</span><br>
-                [A] Lorem ipsum dolor sit, amet consectetur.<button>A</button><br>
-                [B] Lorem ipsum dolor sit, amet consectetur.<button>B</button><br>
-                [C] Lorem ipsum dolor sit, amet consectetur.<button>C</button><br>
-                [D] Lorem ipsum dolor sit, amet consectetur.<button>D</button>
-            </div> -->
+            <div class="btn-position"><button onclick="handAns()">交卷</button></div>
         </div>
-        <div><button onclick="handAns()">交卷</button></div>
     </div>
-    <script src="./javascripts/front-side.js"></script>
     <script>getTestData()</script>
     <script src="footer.js"></script>
 </body>

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/buy.css">
     <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </head>
 <body>
     <script src="header.js"></script>
@@ -22,17 +22,17 @@
             </div>
         </div>
         <div class="goods" id="goods_">
-            <!-- <div class="goods-item">
+            <div class="goods-item">
                 <div class="goods-img"><img src="image/food1.png" alt="food1"></div>
-                <div class="goods-button"><button>100</button></div>
+                <div class="goods-button"><a href='javascript:void(0)' id='linkbt'><button>100</button></a></div>
             </div>
             <div class="goods-item">
                 <div class="goods-img"><img src="image/food2.png" alt="food2"></div>
-                <div class="goods-button"><button>100</button></div>
+                <div class="goods-button"><button>200</button></div>
             </div>
             <div class="goods-item">
                 <div class="goods-img"><img src="image/food3.png" alt="food3"></div>
-                <div class="goods-button"><button>100</button></div>
+                <div class="goods-button"><button>300</button></div>
             </div>
             <div class="goods-item">
                 <div class="goods-img"><img src="image/food1.png" alt="food1"></div>
@@ -57,9 +57,62 @@
             <div class="goods-item">
                 <div class="goods-img"><img src="image/food1.png" alt="food1"></div>
                 <div class="goods-button"><button>100</button></div>
-            </div> -->
+            </div>
+
+            <div id='login'>
+                <div class="buy-position">
+                    <h1>確認購買</h1>
+                    <div class="buy-content">
+                        <div class="goods-name">
+                            <div>
+                                <img src="image/food1.png" alt="food1">
+                            </div>
+                            <div class="goods-detail">
+                                商品名稱 : XXX<br>
+                                單價 : 100
+                            </div>
+                        </div>
+                        購買數量 : <input type="number" name="amount" min="1" max="99" value="1" > 
+                        <span class="total">總共 : 123</span><br>
+                        <span class="remain">剩餘金幣 : 0</span>
+                    </div>
+                    <div class="buy-button">
+                        <button class="yesbt" onclick="saveGoalData()">確定</button>
+                        <a href='javascript:void(0)' id='closebt' class='color'><button class="nobt">取消</button></a>
+                    </div>
+                </div> 
+            </div>
         </div>
     </div>
+
+    <div id='fade'></div>
+    <script type='text/javascript'>
+        function hi(){
+           var linkbt=document.getElementById('linkbt');
+           var login=document.getElementById('login');
+           var fade=document.getElementById('fade');
+           var closebt=document.getElementById('closebt');
+           var register=document.getElementById('register');
+           var register_div=document.getElementById('register_div');
+           linkbt.onclick=function(){
+            login.style.display='block';
+             fade.style.display='block';
+           }
+           closebt.onclick=function(){
+            login.style.display='none';
+             fade.style.display='none';
+           }
+           register.onclick=function(){
+  
+               login.style.display='none';
+               fade.style.display='none';
+               register_div.style.display='block';
+               fade.style.display='block';
+           }
+        }
+         window.addEventListener('load', hi);
+    </script>
+
     <script src="footer.js"></script>
     <script src="./javascripts/front-side.js"></script>
 </body>

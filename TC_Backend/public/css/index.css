@@ -123,11 +123,9 @@ nav{
     border: none;
     font-size: 16px;
     cursor: pointer;
-    transform: translateY(0);
     transition: .3s;
 }
 .nav button:hover{
-    transform: translateY(-3px);
     background-color: #2fb3d1;
     color: #fff;
 }
