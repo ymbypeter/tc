@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/skin.css">
+    <link rel="stylesheet" href="css/change.css">
+    <link rel="stylesheet" href="file:///C:/Users/qazws/OneDrive/%E6%A1%8C%E9%9D%A2/tc/TC_Backend/public/fontawesome-free-5.12.1-web/css/all.css">
+    <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+</head>
+<body>
+    <script src="header.js"></script>
+    <div class="wrap">
+            <div class="pet-skin">
+                <h1>寵物狀態 : </h1>
+                <div class="pet-item">
+                    <div class="pet-item-top">
+                        <div class="item-border">
+                            <div class="item">
+                                <div>黑皮</div>
+                                <div><img src="image/penguin.png" alt="penguin"></div>
+                                <div class="skin-btn"><a href='javascript:void(0)' id='linkbt'><button class="personal-button">更換皮膚</button></a></div>
+                            </div>
+                            <div class="item">
+                                親密度<br>
+                                <div class="plan-percent">
+                                    0
+                                    <div class="plan">
+                                        <div class="plan-color"></div>
+                                    </div>
+                                    100
+                                </div>
+                                <div class="fam">
+                                    <div class="fam-item">
+                                        <img src="image/food1.png" alt="food1">
+                                        擁有1
+                                    </div>
+                                    <div class="fam-item">
+                                        <img src="image/food2.png" alt="food2">
+                                        擁有2
+                                    </div>
+                                    <div class="fam-item">
+                                        <img src="image/food3.png" alt="food3">
+                                        擁有3
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-border">
+                            <div class="item">
+                                <div>孵化中...</div>
+                                <div><img src="image/egg.png" alt="penguin"></div>
+                            </div>
+                            <div class="item">
+                                親密度
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pet-item-bottom">
+                        <div class="item-border">
+                            <div class="item">
+                                <div>猜猜我是誰?</div>
+                                <div><img src="image/egg.png" alt="penguin"></div>
+                            </div>
+                            <div class="item">
+                                親密度
+                            </div>
+                        </div>
+                        <div class="item-border">
+                            <div class="item">
+                                <div>猜猜我是誰?</div>
+                                <div><img src="image/egg.png" alt="penguin"></div>
+                            </div>
+                            <div class="item">
+                                親密度
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id='login'>
+                <div class="change-position">
+                    <h1>請選擇要更換的皮膚</h1>
+                    <div class="change-pet">
+                        <div class="change-item">
+                            <div class="item-pet">黑皮1</div>
+                            <img src="image/penguin.png" alt="penguin" onclick="changeA()" id="menuA">
+                        </div>
+                        <div class="change-item">
+                            <div class="item-pet">黑皮2</div>
+                            <img src="image/penguin.png" alt="penguin" onclick="changeB()" id="menuB">
+                        </div>
+                        <div class="change-item">
+                            <div class="item-pet">黑皮3</div>
+                            <img src="image/penguin.png" alt="penguin" onclick="changeC()" id="menuC">
+                        </div>
+                        <div class="change-item">
+                            <div class="item-pet">黑皮4</div>
+                            <img src="image/penguin.png" alt="penguin" onclick="changeD()" id="menuD">
+                        </div>
+                    </div>
+                    <div class="change-button">
+                        <button class="yesbt" onclick="saveGoalData()">確定</button>
+                        <a href='javascript:void(0)' id='closebt' class='color'><button class="nobt">取消</button></a>
+                    </div>
+                </div> 
+            </div>
+    
+    </div>
+
+    <div id='fade'></div>
+    <script type='text/javascript'>
+        function hi(){
+           var linkbt=document.getElementById('linkbt');
+           var login=document.getElementById('login');
+           var fade=document.getElementById('fade');
+           var closebt=document.getElementById('closebt');
+           var register=document.getElementById('register');
+           var register_div=document.getElementById('register_div');
+           linkbt.onclick=function(){
+            login.style.display='block';
+             fade.style.display='block';
+           }
+           closebt.onclick=function(){
+            login.style.display='none';
+             fade.style.display='none';
+           }
+           register.onclick=function(){
+  
+               login.style.display='none';
+               fade.style.display='none';
+               register_div.style.display='block';
+               fade.style.display='block';
+           }
+        }
+         window.addEventListener('load', hi);
+    </script>
+
+    <!-- 子欄變色 -->
+    <script type="text/javascript">
+        function changeA(){
+        document.getElementById("menuA").style.border='2px solid yellow';
+        document.getElementById("menuB").style.border='2px solid #ddd';
+        document.getElementById("menuC").style.border='2px solid #ddd';
+        document.getElementById("menuD").style.border='2px solid #ddd';
+        }
+        function changeB(){
+        document.getElementById("menuB").style.border='2px solid yellow';
+        document.getElementById("menuA").style.border='2px solid #ddd';
+        document.getElementById("menuC").style.border='2px solid #ddd';
+        document.getElementById("menuD").style.border='2px solid #ddd';
+        }
+        function changeC(){
+        document.getElementById("menuC").style.border='2px solid yellow';
+        document.getElementById("menuB").style.border='2px solid #ddd';
+        document.getElementById("menuA").style.border='2px solid #ddd';
+        document.getElementById("menuD").style.border='2px solid #ddd';
+        }
+        function changeD(){
+        document.getElementById("menuD").style.border='2px solid yellow';
+        document.getElementById("menuB").style.border='2px solid #ddd';
+        document.getElementById("menuA").style.border='2px solid #ddd';
+        document.getElementById("menuC").style.border='2px solid #ddd';
+        }
+    </script>
+
+    <script src="footer.js"></script>
+    <script src="./javascripts/front-side.js"></script>
+</body>
+</html>

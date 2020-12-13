@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>雷達圖 - 答題錯誤率</h1>
+    <script>
+    var mW = 300;
+	var mH = 300;
+	var mData = [['01', 77],
+				['02', 72],
+				['03', 45],
+				['04', 80],
+				['05', 60]];
+	var mCount = mData.length; //邊數
+	var mCenter = mW /2; //中心點
+	var mRadius = mCenter - 50; //半徑(減去的值用於給繪製的文本留空間)
+	var mAngle = Math.PI * 2 / mCount; //角度
+	var mCtx = null;
+	var mColorPolygon = '#B8B8B8'; //多邊形顏色
+	var mColorLines = '#B8B8B8'; //頂點連線顏色
+	var mColorText = '#000000';
+
+	//初始化
+	(function(){
+	  var canvas = document.createElement('canvas');
+	  document.body.appendChild(canvas);
+	  canvas.height = mH;
+	  canvas.width = mW;
+	  mCtx = canvas.getContext('2d');
+	  
+	  drawPolygon(mCtx);
+	  drawLines(mCtx);
+	  drawText(mCtx);
+	  drawRegion(mCtx);
+	  drawCircle(mCtx);
+	})();
+  
+  // 繪製多邊形邊
+  function drawPolygon(ctx){
+  	ctx.save();
+  	
+  	ctx.strokeStyle = mColorPolygon;
+  	var r = mRadius/ mCount; //單位半徑
+  	//畫6個圈
+  	for(var i = 0; i < mCount; i ++){
+  		ctx.beginPath();  		
+  		var currR = r * ( i + 1); //當前半徑
+  		//畫6條邊
+  		for(var j = 0; j < mCount; j ++){
+  			var x = mCenter + currR * Math.cos(mAngle * j);
+  			var y = mCenter + currR * Math.sin(mAngle * j);
+  			
+  			ctx.lineTo(x, y);
+  		}
+  		ctx.closePath()
+  		ctx.stroke();
+  	}
+  	
+  	ctx.restore();
+  }
+	
+	//頂點連線
+	function drawLines(ctx){
+		ctx.save();
+		
+		ctx.beginPath();
+		ctx.strokeStyle = mColorLines;
+		
+		for(var i = 0; i < mCount; i ++){
+			var x = mCenter + mRadius * Math.cos(mAngle * i);
+			var y = mCenter + mRadius * Math.sin(mAngle * i);
+			
+			ctx.moveTo(mCenter, mCenter);
+			ctx.lineTo(x, y);
+		}
+		
+		ctx.stroke();
+		
+		ctx.restore();
+	}
+	
+	//繪製文本
+	function drawText(ctx){
+		ctx.save();
+		
+		var fontSize = mCenter / 12;
+		ctx.font = fontSize + 'px Microsoft Yahei';
+		ctx.fillStyle = mColorText;
+		
+		for(var i = 0; i < mCount; i ++){
+			var x = mCenter + mRadius * Math.cos(mAngle * i);
+			var y = mCenter + mRadius * Math.sin(mAngle * i);
+			
+			if( mAngle * i >= 0 && mAngle * i <= Math.PI / 2 ){
+				ctx.fillText(mData[i][0], x, y + fontSize);	
+			}else if(mAngle * i > Math.PI / 2 && mAngle * i <= Math.PI){
+				ctx.fillText(mData[i][0], x - ctx.measureText(mData[i][0]).width, y + fontSize);	
+			}else if(mAngle * i > Math.PI && mAngle * i <= Math.PI * 3 / 2){
+				ctx.fillText(mData[i][0], x - ctx.measureText(mData[i][0]).width, y);	
+			}else{
+				ctx.fillText(mData[i][0], x, y);
+			}
+			
+		}
+		
+		ctx.restore();
+	}
+	
+	//繪製數據區域
+	function drawRegion(ctx){
+		ctx.save();
+		
+		ctx.beginPath();
+		for(var i = 0; i < mCount; i ++){
+			var x = mCenter + mRadius * Math.cos(mAngle * i) * mData[i][1] / 100;
+			var y = mCenter + mRadius * Math.sin(mAngle * i) * mData[i][1] / 100;
+			
+			ctx.lineTo(x, y);
+		}
+		ctx.closePath();
+		ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+		ctx.fill();
+		
+		ctx.restore();
+	}
+	
+	//畫點
+	function drawCircle(ctx){
+		ctx.save();
+	
+		var r = mCenter / 18;
+		for(var i = 0; i < mCount; i ++){
+			var x = mCenter + mRadius * Math.cos(mAngle * i) * mData[i][1] / 100;
+			var y = mCenter + mRadius * Math.sin(mAngle * i) * mData[i][1] / 100;
+
+			ctx.beginPath();			
+			ctx.arc(x, y, r, 0, Math.PI * 2);
+			ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
+			ctx.fill();
+		}		
+		
+		ctx.restore();
+	}
+    </script>
+</body>
+</html>
